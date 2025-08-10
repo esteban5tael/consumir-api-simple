@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { IndexPage } from './pages/index-page/index-page';
+export const routes: Routes = [
+    {
+        title: "Contactos",
+        path: '',
+        component: IndexPage
+    }
+];
