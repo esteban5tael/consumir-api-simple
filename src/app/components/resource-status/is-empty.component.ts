@@ -1,7 +1,16 @@
+/**
+ * Archivo: is-empty.component.ts
+ * Descripción: Componente que muestra mensaje cuando no hay datos disponibles
+ * Propósito: Proporcionar feedback visual cuando las consultas retornan resultados vacíos
+ */
+
+// Importa estrategia de detección de cambios y decorador Component
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+// Decorador que define este como un componente Angular standalone
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
+  // Selector personalizado sin prefijo para uso genérico como <is-empty />
   selector: 'is-empty',
   imports: [],
   template: `
@@ -54,4 +63,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IsEmptyComponent {}
+export class IsEmptyComponent { }

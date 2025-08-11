@@ -1,0 +1,19 @@
+/**
+ * Archivo: index-page.css
+ * Descripción: Estilos específicos del componente IndexPage
+ * Propósito: Definir estilos CSS que solo aplican a la página principal
+ * 
+ * Nota: Este archivo está vacío porque todos los estilos están siendo
+ * manejados por Tailwind CSS directamente en el template HTML.
+ * Los estilos globales están en src/styles.css
+ */
+
+/* 
+  Aquí se pueden agregar estilos específicos para la página de índice
+  que no puedan ser logrados con utilidades de Tailwind CSS.
+  
+  Ejemplo de uso:
+  .custom-grid-animation {
+    animation: fadeIn 0.3s ease-in;
+  }
+*/

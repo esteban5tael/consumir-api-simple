@@ -1,16 +1,109 @@
 {
+  "_comment": "Archivo: db.json - Base de datos JSON para desarrollo con json-server",
+  "_description": "Contiene datos mock para testing y desarrollo de la aplicación",
+  "_purpose": "Simular API REST para operaciones CRUD sin backend real",
   "contacts": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Doe",
       "email": "algo@algo.com",
       "phone": "123-456-7890"
     },
     {
-      "id": 2,
-      "name": "Jane Smith",
-      "email": "afasdfa@gmail.com",
-      "phone": "987-654-3210"
+      "id": "2",
+      "name": "Daniel",
+      "email": "mosquera@mail.com",
+      "phone": "3003003030"
+    },
+    {
+      "id": "5",
+      "name": "Ana Rodríguez",
+      "email": "ana.rodriguez@hotmail.com",
+      "phone": "555-345-6789"
+    },
+    {
+      "id": "6",
+      "name": "Luis Martínez",
+      "email": "luis.martinez@yahoo.com",
+      "phone": "555-456-7890"
+    },
+    {
+      "id": "9",
+      "name": "Isabel Torres",
+      "email": "isabel.torres@gmail.com",
+      "phone": "555-789-0123"
+    },
+    {
+      "id": "10",
+      "name": "Roberto Jiménez",
+      "email": "roberto.jimenez@hotmail.com",
+      "phone": "555-890-1234"
+    },
+    {
+      "id": "11",
+      "name": "Laura Moreno",
+      "email": "laura.moreno@yahoo.com",
+      "phone": "555-901-2345"
+    },
+    {
+      "id": "12",
+      "name": "David Ruiz",
+      "email": "david.ruiz@outlook.com",
+      "phone": "555-012-3456"
+    },
+    {
+      "id": "15",
+      "name": "Sofía Castillo",
+      "email": "sofia.castillo@hotmail.com",
+      "phone": "555-345-6780"
+    },
+    {
+      "id": "16",
+      "name": "Fernando Ortega",
+      "email": "fernando.ortega@yahoo.com",
+      "phone": "555-456-7891"
+    },
+    {
+      "id": "17",
+      "name": "Elena Ramos",
+      "email": "elena.ramos@outlook.com",
+      "phone": "555-567-8902"
+    },
+    {
+      "id": "18",
+      "name": "Javier Mendoza",
+      "email": "javier.mendoza@email.com",
+      "phone": "555-678-9013"
+    },
+    {
+      "id": "19",
+      "name": "Gabriela Silva",
+      "email": "gabriela.silva@gmail.com",
+      "phone": "555-789-0124"
+    },
+    {
+      "id": "20",
+      "name": "Ricardo Peña",
+      "email": "ricardo.pena@hotmail.com",
+      "phone": "555-890-1235"
+    },
+    {
+      "id": "90b1",
+      "name": "Blythe Leon",
+      "email": "fudodivij@mailinator.com",
+      "phone": "+1 (246) 963-8944"
+    },
+    {
+      "id": "a153",
+      "name": "Fredericka Fuller",
+      "email": "cirumaz@mailinator.com",
+      "phone": "+1 (983) 494-6431"
+    },
+    {
+      "id": "4309",
+      "name": "Ferris Peck",
+      "email": "fedu@mailinator.com",
+      "phone": "+1 (618) 871-3649"
     }
   ]
 }

@@ -1,15 +1,68 @@
+<!-- 
+  Archivo: index-page.html
+  Descripción: Template de la página principal que muestra contactos con diferentes estados
+  Propósito: Renderizar condicionalmente componentes según el estado del resource
+-->
+
+<!-- Cabecera principal con diseño moderno y responsive -->
+<header class="bg-gray-800 border-b border-gray-700 shadow-lg">
+  <div class="flex justify-between items-center p-6">
+    <!-- Título principal con jerarquía visual -->
+    <div>
+      <h1 class="text-2xl font-bold text-gray-100">Contactos</h1>
+      <p class="text-sm text-gray-400 mt-1">Gestiona tu lista de contactos</p>
+    </div>
+
+    <!-- Botón de acción principal con estilo coherente -->
+    <a class="btn-primary inline-flex items-center gap-2"
+    routerLink="/create"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+        ></path>
+      </svg>
+      Nuevo Contacto
+    </a>
+  </div>
+</header>
+
+<!-- Control flow condicional moderno de Angular para manejar estado de carga -->
 @if (contactsResource.isLoading()) {
+<!-- Muestra spinner de carga mientras se obtienen los datos -->
 <is-loading />
 } @else if (!contactsResource.hasValue()) {
+<!-- Muestra mensaje cuando no hay datos disponibles -->
 <is-empty />
 } @else if (contactsResource.error()) {
+<!-- Muestra mensaje de error si algo falla en la petición -->
 <is-error />
 } @else if (contactsResource.hasValue()) {
-<!-- Data -->
+<!-- Renderiza los datos cuando están disponibles y sin errores -->
+
+<!-- Contenedor principal con grid responsive usando Tailwind CSS -->
+<!-- grid: activa CSS Grid layout -->
+<!-- grid-cols-1: 1 columna en móvil -->
+<!-- md:grid-cols-3: 3 columnas en tablet (768px+) -->
+<!-- xl:grid-cols-5: 5 columnas en desktop (1280px+) -->
+<!-- gap-6: espaciado de 1.5rem entre elementos -->
+<!-- p-6: padding de 1.5rem en todos los lados -->
 <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-6 p-6">
+  <!-- Loop moderno de Angular para iterar sobre el array de contactos -->
+  <!-- track $index: optimización de rendimiento para re-renderizado -->
   @for(contacto of contactsResource.value(); track $index){
+  <!-- Componente hijo que recibe cada contacto como input -->
+  <!-- [contact]: property binding para pasar datos al componente hijo -->
   <app-contact-card [contact]="contacto" />
   }
 </div>
-<!-- Data -->
 }

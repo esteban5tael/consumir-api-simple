@@ -1,32 +1,140 @@
+<!-- 
+  Archivo: contact-card.html
+  Descripción: Template de la tarjeta de contacto con diseño moderno
+  Propósito: Mostrar información del contacto con iconos, efectos hover y diseño responsive
+-->
+
+<!-- Contenedor principal de la tarjeta con estilos Tailwind CSS -->
 <div
   class="bg-gray-900 rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200 text-white"
 >
+  <!-- bg-gray-900: fondo gris oscuro para tema dark -->
+  <!-- rounded-lg: esquinas redondeadas grandes -->
+  <!-- shadow-md: sombra mediana para profundidad -->
+  <!-- border border-gray-200: borde gris claro -->
+  <!-- p-6: padding de 1.5rem en todos los lados -->
+  <!-- hover:shadow-lg: sombra más grande al hacer hover -->
+  <!-- transition-shadow duration-200: transición suave de sombra en 200ms -->
+  <!-- text-white: texto blanco para contraste con fondo oscuro -->
+
+  <!-- Contenedor flex para organizar elementos verticalmente -->
   <div class="flex flex-col space-y-3">
+    <!-- flex flex-col: disposición vertical en columna -->
+    <!-- space-y-3: espacio vertical de 0.75rem entre elementos hijos -->
+
+    <!-- NO HACER EN LA VIDA REAL -->
+    <h1 class="text-2xl">{{ contact().id }}</h1>
+
+    <!-- Título con el nombre del contacto -->
     <h3 class="text-lg font-semibold text-gray-100 truncate">
+      <!-- text-lg: tamaño de texto grande -->
+      <!-- font-semibold: peso de fuente semi-negrita -->
+      <!-- text-gray-100: color gris muy claro -->
+      <!-- truncate: corta texto largo con puntos suspensivos -->
+
+      <!-- Interpolación de Angular para mostrar el nombre del contacto -->
       {{ contact().name }}
     </h3>
 
+    <!-- Contenedor para información de contacto con iconos -->
     <div class="space-y-2">
+      <!-- space-y-2: espacio vertical de 0.5rem entre elementos -->
+
+      <!-- Sección de email con icono -->
       <div class="flex items-center text-sm text-gray-100">
+        <!-- flex items-center: alinea elementos horizontalmente al centro -->
+        <!-- text-sm: tamaño de texto pequeño -->
+        <!-- text-gray-100: color gris muy claro -->
+
+        <!-- Icono SVG de email -->
         <svg
           class="w-4 h-4 mr-2 flex-shrink-0"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
+          <!-- w-4 h-4: ancho y alto de 1rem -->
+          <!-- mr-2: margen derecho de 0.5rem -->
+          <!-- flex-shrink-0: evita que el icono se reduzca -->
+          <!-- fill="none": sin relleno, solo contorno -->
+          <!-- stroke="currentColor": usa el color del texto padre -->
+          <!-- viewBox: área visible del SVG en coordenadas -->
+
+          <!-- Ruta SVG que dibuja el icono de sobre/email -->
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             d="M3 8l7.89 4.033c.67.349 1.42.349 2.09 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
           ></path>
+          <!-- stroke-linecap="round": extremos de línea redondeados -->
+          <!-- stroke-linejoin="round": uniones de línea redondeadas -->
+          <!-- stroke-width="2": grosor de línea de 2px -->
+          <!-- d: comandos de dibujo SVG para crear forma de sobre -->
         </svg>
+
+        <!-- Texto del email con truncado para textos largos -->
         <span class="truncate">{{ contact().email }}</span>
+        <!-- truncate: corta email largo con puntos suspensivos -->
+        <!-- Interpolación para mostrar el email del contacto -->
       </div>
 
+      <!-- Sección de teléfono con icono -->
       <div class="flex items-center text-sm text-gray-100">
+        <!-- Mismos estilos que la sección de email -->
+
+        <!-- Icono SVG de teléfono -->
         <svg
           class="w-4 h-4 mr-2 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <!-- Mismas propiedades que el icono de email -->
+
+          <!-- Ruta SVG que dibuja el icono de teléfono -->
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          ></path>
+          <!-- d: comandos SVG para dibujar forma de teléfono -->
+        </svg>
+
+        <!-- Texto del teléfono con truncado -->
+        <span class="truncate">{{ contact().phone }}</span>
+        <!-- Interpolación para mostrar el teléfono del contacto -->
+      </div>
+    </div>
+
+    <!-- Botones de acción con diseño moderno -->
+    <div class="flex gap-3 pt-4 border-t border-gray-700">
+      <!-- flex gap-3: disposición horizontal con espacio de 0.75rem entre botones -->
+      <!-- pt-4: padding top de 1rem -->
+      <!-- border-t border-gray-700: línea divisora superior gris -->
+
+      <!-- Botón de editar con estilo principal -->
+      <a
+        [routerLink]="['edit', contact().id]"
+        class="flex-1 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+      >
+        <!-- flex-1: toma todo el espacio disponible -->
+        <!-- inline-flex items-center justify-center: centrado horizontal y vertical -->
+        <!-- px-4 py-2: padding horizontal 1rem, vertical 0.5rem -->
+        <!-- text-sm font-medium: texto pequeño y peso medio -->
+        <!-- text-white: texto blanco -->
+        <!-- bg-blue-600: fondo azul -->
+        <!-- border border-transparent: borde transparente -->
+        <!-- rounded-md: esquinas redondeadas medianas -->
+        <!-- hover:bg-blue-700: fondo azul más oscuro al hover -->
+        <!-- focus:outline-none: quita outline por defecto -->
+        <!-- focus:ring-2 focus:ring-offset-2 focus:ring-blue-500: anillo de enfoque azul -->
+        <!-- transition-colors duration-200: transición suave de colores -->
+
+        <!-- Icono de editar -->
+        <svg
+          class="w-4 h-4 mr-2"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -35,11 +143,39 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
           ></path>
         </svg>
-        <span class="truncate">{{ contact().phone }}</span>
-      </div>
+        Editar
+      </a>
+
+      <!-- Botón de eliminar con estilo de peligro -->
+      <button
+        class="flex-1 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+        (click)="deleteContact(contact().id!)"
+        type="button"
+      >
+        <!-- Mismos estilos base que el botón de editar pero con colores rojos -->
+        <!-- bg-red-600: fondo rojo -->
+        <!-- hover:bg-red-700: fondo rojo más oscuro al hover -->
+        <!-- focus:ring-red-500: anillo de enfoque rojo -->
+
+        <!-- Icono de eliminar -->
+        <svg
+          class="w-4 h-4 mr-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+          ></path>
+        </svg>
+        Eliminar
+      </button>
     </div>
   </div>
 </div>
