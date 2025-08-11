@@ -1,0 +1,14 @@
+/**
+ * Archivo: app.css
+ * Descripción: Estilos específicos del componente App
+ * Propósito: Define estilos CSS que solo aplican al componente raíz de la aplicación
+ * 
+ * Nota: Este archivo está vacío porque el componente App solo contiene un router-outlet
+ * y todos los estilos globales están definidos en src/styles.css
+ */
+
+/* 
+  Los estilos aquí definidos solo afectarían al componente App.
+  Como solo contiene <router-outlet/>, no necesita estilos específicos.
+  Los estilos de cada página se definen en sus respectivos archivos CSS.
+*/

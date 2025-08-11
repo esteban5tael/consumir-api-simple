@@ -1,0 +1,28 @@
+/**
+ * Archivo: contact-card.css
+ * Descripción: Estilos específicos del componente ContactCard
+ * Propósito: Definir estilos CSS personalizados que no pueden lograrse con Tailwind
+ * 
+ * Nota: Este archivo está vacío porque todos los estilos están siendo
+ * manejados completamente por utilidades de Tailwind CSS en el template HTML.
+ * El diseño de la tarjeta usa clases de Tailwind para máxima flexibilidad.
+ */
+
+/* 
+  Aquí se pueden agregar estilos específicos para la tarjeta de contacto
+  que requieran CSS personalizado más allá de las utilidades de Tailwind.
+  
+  Ejemplos de uso:
+  
+  .contact-card-animation {
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  .contact-card-custom-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .contact-card-hover-effect:hover {
+    transform: translateY(-2px);
+  }
+*/

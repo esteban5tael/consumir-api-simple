@@ -1,0 +1,114 @@
+<!-- 
+  Archivo: index-page.html
+  Descripción: Template de la página principal que muestra contactos con diferentes estados
+  Propósito: Renderizar condicionalmente componentes según el estado del resource
+-->
+
+<!-- Cabecera principal con diseño moderno y responsive -->
+<header class="bg-gray-800 border-b border-gray-700 shadow-lg">
+  <div class="flex justify-between items-center p-6">
+    <!-- Título principal con jerarquía visual -->
+    <div>
+      <h1 class="text-2xl font-bold text-gray-100">Contactos</h1>
+      <p class="text-sm text-gray-400 mt-1">Edita tu contacto</p>
+    </div>
+
+    <!-- Botón de acción principal con estilo coherente -->
+    <a class="btn-primary inline-flex items-center gap-2"
+    [routerLink]="['/']"
+    >
+      Volver
+    </a>
+  </div>
+</header>
+
+<!-- Control flow condicional moderno de Angular para manejar estado de carga -->
+@if (contactResource.isLoading()) {
+<!-- Muestra spinner de carga mientras se obtienen los datos -->
+<is-loading />
+} @else if (!contactResource.hasValue()) {
+<!-- Muestra mensaje cuando no hay datos disponibles -->
+<is-empty />
+} @else if (contactResource.error()) {
+<!-- Muestra mensaje de error si algo falla en la petición -->
+<is-error />
+} @else if (contactResource.hasValue()) {
+<!-- Renderiza los datos cuando están disponibles y sin errores -->
+
+<!-- ---------------------------------------- -->
+<main class="p-6">
+  <div class="max-w-2xl mx-auto">
+    <form
+      autocomplete="off"
+      [formGroup]="editContactForm"
+      (ngSubmit)="onSubmit()"
+      class="space-y-6"
+    >
+      <!-- Campo Nombre -->
+      <div class="form-group">
+        <label for="name" class="label label-required">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          class="input"
+          placeholder="Ingresa el nombre completo"
+        />
+        @if(editContactForm.controls['name'].touched &&
+        editContactForm.controls['name'].invalid &&
+        editContactForm.controls['name'].dirty) {
+        <small class="error-message">Verifique el nombre</small>
+        }
+      </div>
+
+      <!-- Campo Email -->
+      <div class="form-group">
+        <label for="email" class="label label-required"
+          >Correo Electrónico</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          class="input"
+          placeholder="ejemplo@correo.com"
+        />
+        @if(editContactForm.controls['email'].touched &&
+        editContactForm.controls['email'].invalid &&
+        editContactForm.controls['email'].dirty) {
+        <small class="error-message">Verifique el email</small>
+        }
+      </div>
+
+      <!-- Campo Teléfono -->
+      <div class="form-group">
+        <label for="phone" class="label label-required">Teléfono</label>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          formControlName="phone"
+          class="input"
+          placeholder="123-456-7890"
+        />
+        @if(editContactForm.controls['phone'].touched &&
+        editContactForm.controls['phone'].invalid &&
+        editContactForm.controls['phone'].dirty) {
+        <small class="error-message">Verifique el teléfono</small>
+        }
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="flex gap-4 pt-4">
+        <button type="submit" class="btn-primary"
+        [disabled]="editContactForm.invalid"
+        >Guardar</button>
+        <a routerLink="/" class="btn-outline-secondary"> Cancelar </a>
+      </div>
+    </form>
+  </div>
+</main>
+
+}
